@@ -1,0 +1,91 @@
+﻿@model DoAnPhanMem.Models.TAIKHOAN
+
+@{
+    ViewBag.Title = "Edit TAIKHOAN";
+    Layout = "~/Views/Shared/_LayoutAdmi.cshtml";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    .form-horizontal .form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .form-horizontal .control-label {
+        text-align: left;
+        padding-top: 7px;
+    }
+
+    .form-horizontal .form-control {
+        margin-bottom: 10px;
+    }
+
+    .btn-default {
+        background-color: #007bff;
+        color: white;
+        border: none;
+    }
+
+        .btn-default:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+
+    .text-danger {
+        color: #dc3545;
+    }
+</style>
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>TAIKHOAN</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(model => model.TENTK)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PASS, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PASS, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PASS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EMAIL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LOAITK, "Đơn vị tính", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("LOAITK", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LOAITK, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

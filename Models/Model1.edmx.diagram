@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81138ee6f5a1409984e10ded2a941f19" Name="Diagram1">
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.DANHGIA_DV" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.DANHGIA_NV" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.DANHMUCDV" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.DANHMUCSP" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.DICHVU" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.HOADON" Width="1.5" PointX="8.25" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.HOADON_DV" Width="1.5" PointX="10.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.HOADON_SP" Width="1.5" PointX="13.5" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.KHACHHANG" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.KHUYENMAI" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.LICHHEN" Width="1.5" PointX="5.25" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.NHANVIEN" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.NHANVIEN_DV" Width="1.5" PointX="5.25" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.SANPHAM" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.SANPHAM_DV" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.TAIKHOAN" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="KHOCTHATNHIEUDB.DANHGIA_SP" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__DANHGIA_D__IDKHA__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__DANHGIA_DV__MADV__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__DANHGIA_N__IDKHA__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__DANHGIA_N__IDNHA__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__DICHVU__IDDM__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__SANPHAM__IDDM__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__HOADON_DV__MADV__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__NHANVIEN_D__MADV__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__SANPHAM_DV__MADV__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__HOADON__IDKHACHH__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__HOADON__IDNHANVI__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__HOADON__MAKM__628FA481" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__HOADON_DV__IDHOA__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__HOADON_SP__IDHOA__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__HOADON_SP__IDSP__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__DANHGIA_S__IDKHA__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__KHACHHANG__TENTK__6754599E" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__LICHHEN__IDKHACH__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__NHANVIEN___IDNHA__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__NHANVIEN__TENTK__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__DANHGIA_SP__IDSP__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="KHOCTHATNHIEUDB.FK__SANPHAM_DV__IDSP__6D0D32F4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

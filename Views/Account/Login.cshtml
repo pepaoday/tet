@@ -1,0 +1,97 @@
+﻿@model DoAnPhanMem.Models.TAIKHOAN
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<div class="reservation-box" style="padding-top: 70px; background-image: url(~/../../Content/img/background1.jpg);background-size:cover">
+    <div class="container" style="background-color:white;padding-top:50px;padding-bottom:50px;width:900px;border-radius:20px">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2 style="font-family:'Times New Roman', Times, serif"><strong>ĐĂNG NHẬP</strong></h2>
+                    <p>Chúng tôi luôn đảm bảo về chất lượng phục vụ tốt nhất cho khách hàng</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="contact-block">
+                    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { id = "LoginForm", @class = "LoginForm" }))
+                    {
+                        @Html.AntiForgeryToken();
+                    <div class="row">
+                        <div class="col-md-6 mx-auto">
+                            <h3 style="text-align:center">NHẬP THÔNG TIN TÀI KHOẢN:</h3>
+                            <div class="col-md-12">
+                                @if (TempData["dangnhap"] != null)
+                                {
+                                    <div class="alert-container">
+                                        <div class="alert alert-danger" role="alert">
+                                            @TempData["dangnhap"]
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <span>&times;</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                                @if (TempData["SuccessMessage"] != null)
+                                {
+                                    <div class="alert-container">
+                                        <div class="alert alert-success" role="alert">
+                                            @TempData["SuccessMessage"]
+                                            <button type="button" class="close" data-dismiss="alert">
+                                                <span>&times;</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                }
+                                <div class="form-group">
+                                    @Html.TextBoxFor(model => model.TENTK, new { @class = "form-control", style = "border-radius:5px", placeholder = "Tên tài khoản", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.TENTK, "", new { @class = "help-block with-errors" })
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @Html.PasswordFor(model => model.PASS, new { @class = "form-control", style = "border-radius:5px", placeholder = "Mật khẩu", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.PASS, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="submit-button text-center">
+                                <button class="btn btn-common" id="submit" type="submit">ĐĂNG NHẬP</button>
+                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <p class="text-center" style="margin-top:20px;font-size:17px">Bạn chưa có tài khoản ? @Html.ActionLink("Đăng ký", "Register", "Account", null, new { style = "color:brown; font-weight:bold;" })</p>
+                            <p class="text-center" style="font-size:17px;margin-top:5px;">@Html.ActionLink("Quên mật khẩu", "Resetpass", "Account", null, new { style = "color:brown; font-weight:bold;" })</p>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Tìm phần tử .alert-container
+        var alertContainer = $('.alert-container');
+        // Nếu có thông báo thành công, thực hiện hiển thị và tự động ẩn sau 3 giây
+        if (alertContainer.length > 0) {
+            // Hiển thị alert
+            alertContainer.show();
+            // Tự động ẩn sau 3 giây
+            setTimeout(function () {
+                alertContainer.hide();  // Ẩn alert
+            }, 3000);  // 3000 milliseconds = 3 giây
+        }
+    });
+</script>

@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "Liên Hệ";
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+<!-- Start header -->
+<div class="all-page-title page-breadcrumb">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12   ">
+                <h1 style="font-family:'Times New Roman', Times, serif">LIÊN HỆ</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End header -->
+<!--Contact -->
+<div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4602949547116!2d106.66478987480491!3d10.776014689372728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752edb765b5c25%3A0x9a3519bdad5a85a3!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOZ2_huqFpIG5n4buvIC0gVGluIGjhu41jIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCAoSFVGTElUKQ!5e0!3m2!1svi!2s!4v1718128583014!5m2!1svi!2s" class="map-full" ></iframe></div>
+<div class="contact-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2 style="font-family:'Times New Roman', Times, serif"><strong>C11 SPA</strong></h2>
+                    <p>Ngày xưa sắc đẹp trời cho - Ngày nay sắc đẹp là do người làm</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="contactForm">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nhập Họ Tên" required data-error="Vui lòng nhập tên của bạn">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <input type="text" placeholder="Nhập Email" id="email" class="form-control" name="name" required data-error="Vui lòng nhập email">
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <select class="custom-select d-block form-control" id="guest" required data-error="Vui lòng chọn vấn đề">
+                                    <option disabled selected>Vấn đề cần liên hệ*</option>
+                                    <option value="1">Tư vấn</option>
+                                    <option value="2">Phản ánh</option>
+                                    <option value="3">Góp ý</option>
+                                    <option value="4">Hỗ trợ</option>
+                                    <option value="5">Khác</option>
+                                </select>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <textarea class="form-control" id="message" placeholder="Nhập lời nhắn " rows="4" data-error="Vui lòng nhập nội dung" required></textarea>
+                                <div class="help-block with-errors"></div>
+                            </div>
+                            <div class="submit-button text-center">
+                                <button class="btn btn-common" id="submit" type="submit">Gửi tin nhắn</button>
+                                <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Contact -->

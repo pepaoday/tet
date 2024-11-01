@@ -1,0 +1,77 @@
+﻿@model List<DoAnPhanMem.Models.KHUYENMAI>
+@{
+    ViewBag.Title = "Khuyến Mãi";
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+
+
+
+<style>
+    .blog-box-inner {
+        cursor: pointer;
+    }
+    .blog-box-inner .blog-detail {
+        width: 100%;
+    }
+</style>
+
+<!-- Start All Pages -->
+<div class="all-page-title page-breadcrumb">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="font-family:'Times New Roman', Times, serif">KHUYẾN MÃI</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Pages -->
+<!-- Start blog -->
+
+
+
+
+
+
+
+<div class="blog-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2 style="font-family:'Times New Roman', Times, serif"><strong>C11 SPA</strong></h2>
+                    <p>Ngày xưa sắc đẹp trời cho - Ngày nay sắc đẹp là do người làm</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="blog-box-inner">
+                            <div class="blog-img-box">
+                                <img class="img-fluid" src="~/Content/images/blog-img-01.jpg" alt="">
+                            </div>
+                            <div class="blog-detail">
+                                <h4>@item.TENCTKM</h4>
+                                <ul>
+                                    <li><span>@item.GIAMGIA %</span></li>
+                                    <li>|</li>
+                                    <li><span>@item.THOIGIANBD.ToString("dd/MM/yyyy")</span></li>
+                                     <li> -> </li>
+                                    <li><span>@item.THOIGIANKT.ToString("dd/MM/yyyy")</span></li>
+                                </ul>
+                                <p>
+                                    @(item.TRANGTHAI != null && !item.TRANGTHAI.Value ? "Kết thúc" : "Còn hạn")
+                            </p>
+                            @*<a class="btn btn-lg btn-circle btn-outline-new-white" href="#">Read More</a>*@
+                        </div>
+                    </div>
+                </div>
+            }
+            }
+        </div>
+    </div>
+</div>
+<!-- End blog -->

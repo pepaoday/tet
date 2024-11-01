@@ -1,0 +1,1463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KHOCTHATNHIEUDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DANHGIA_DV">
+          <Key>
+            <PropertyRef Name="MADANHGIA" />
+          </Key>
+          <Property Name="MADANHGIA" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="SOSAO" Type="tinyint" />
+          <Property Name="MADV" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="char" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DANHGIA_NV">
+          <Key>
+            <PropertyRef Name="MADANHGIA" />
+          </Key>
+          <Property Name="MADANHGIA" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="SOSAO" Type="tinyint" />
+          <Property Name="IDNHANVIEN" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="char" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'KHOCTHATNHIEU.dbo.DANHGIA_SP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DANHGIA_SP">
+          <Key>
+            <PropertyRef Name="MADANHGIA" />
+            <PropertyRef Name="IDSP" />
+            <PropertyRef Name="IDKHACHHANG" />
+          </Key>
+          <Property Name="MADANHGIA" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="SOSAO" Type="tinyint" />
+          <Property Name="IDSP" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="char" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DANHMUCDV">
+          <Key>
+            <PropertyRef Name="IDDM" />
+          </Key>
+          <Property Name="IDDM" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENDM" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IMG" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DANHMUCSP">
+          <Key>
+            <PropertyRef Name="IDDM" />
+          </Key>
+          <Property Name="IDDM" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENDM" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IMG" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DICHVU">
+          <Key>
+            <PropertyRef Name="MADV" />
+          </Key>
+          <Property Name="MADV" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENDV" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MOTA" Type="nvarchar(max)" />
+          <Property Name="IMG" Type="nvarchar(max)" />
+          <Property Name="IMG2" Type="nvarchar(max)" />
+          <Property Name="IMG3" Type="nvarchar(max)" />
+          <Property Name="GIA" Type="int" Nullable="false" />
+          <Property Name="TONGDANHGIA" Type="float" Nullable="false" />
+          <Property Name="IDDM" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="DONVITINH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GIAMGIA" Type="int" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDHOADON" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TONGGIA" Type="int" Nullable="false" />
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+          <Property Name="NGAY" Type="date" Nullable="false" />
+          <Property Name="GIO" Type="time" Precision="0" Nullable="false" />
+          <Property Name="MAKM" Type="char" MaxLength="15" />
+          <Property Name="TENKH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TENNV" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SODT" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="IDNHANVIEN" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="char" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOADON_DV">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+            <PropertyRef Name="MADV" />
+          </Key>
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+          <Property Name="THANHTIEN" Type="int" Nullable="false" />
+          <Property Name="GIA" Type="int" Nullable="false" />
+          <Property Name="GIAMGIA" Type="int" Nullable="false" />
+          <Property Name="IDHOADON" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="MADV" Type="char" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HOADON_SP">
+          <Key>
+            <PropertyRef Name="IDSP" />
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+          <Property Name="TONGTIEN" Type="int" Nullable="false" />
+          <Property Name="GIA" Type="int" Nullable="false" />
+          <Property Name="GIAMGIA" Type="int" Nullable="false" />
+          <Property Name="THUE" Type="int" Nullable="false" />
+          <Property Name="IDSP" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="IDHOADON" Type="char" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="IDKHACHHANG" />
+          </Key>
+          <Property Name="HANG" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENKH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GIOITINH" Type="bit" />
+          <Property Name="DIACHI" Type="nvarchar(max)" />
+          <Property Name="NGAYSINH" Type="date" />
+          <Property Name="SODT" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="TENTK" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="CHITIEU" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KHUYENMAI">
+          <Key>
+            <PropertyRef Name="MAKM" />
+          </Key>
+          <Property Name="MAKM" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENCTKM" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TRANGTHAI" Type="bit" />
+          <Property Name="GIAMGIA" Type="int" Nullable="false" />
+          <Property Name="THOIGIANBD" Type="date" Nullable="false" />
+          <Property Name="THOIGIANKT" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LICHHEN">
+          <Key>
+            <PropertyRef Name="MADL" />
+          </Key>
+          <Property Name="MADL" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="NGAY" Type="date" />
+          <Property Name="THOIGIAN" Type="time" Precision="0" />
+          <Property Name="TRANGTHAI" Type="bit" Nullable="false" />
+          <Property Name="GHICHU" Type="nvarchar(max)" />
+          <Property Name="TENKH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="SODTKH" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="char" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="IDNHANVIEN" />
+          </Key>
+          <Property Name="IDNHANVIEN" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENNV" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="GIOITINH" Type="bit" />
+          <Property Name="DIACHI" Type="nvarchar(max)" />
+          <Property Name="TONGDANHGIA" Type="float" Nullable="false" />
+          <Property Name="NGAYSINH" Type="date" />
+          <Property Name="SODT" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="CHUCVU" Type="nvarchar(max)" />
+          <Property Name="TENTK" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="NGHIEPVU" Type="nvarchar(max)" />
+          <Property Name="IMG" Type="nvarchar(max)" />
+          <Property Name="MOTA" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="NHANVIEN_DV">
+          <Key>
+            <PropertyRef Name="MADV" />
+            <PropertyRef Name="IDNHANVIEN" />
+          </Key>
+          <Property Name="MADV" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENDV" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IDNHANVIEN" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENNV" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="IDSP" />
+          </Key>
+          <Property Name="IDSP" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENSP" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="MOTA" Type="nvarchar(max)" />
+          <Property Name="IMG" Type="nvarchar(max)" />
+          <Property Name="IMG2" Type="nvarchar(max)" />
+          <Property Name="IMG3" Type="nvarchar(max)" />
+          <Property Name="GIA" Type="int" Nullable="false" />
+          <Property Name="TONGDANHGIA" Type="float" Nullable="false" />
+          <Property Name="THUE" Type="int" Nullable="false" />
+          <Property Name="GIAMGIA" Type="int" />
+          <Property Name="IDDM" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="DONVITINH" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SOLUONG" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SANPHAM_DV">
+          <Key>
+            <PropertyRef Name="MADV" />
+            <PropertyRef Name="IDSP" />
+          </Key>
+          <Property Name="MADV" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENDV" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IDSP" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="TENSP" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="TENTK" />
+          </Key>
+          <Property Name="TENTK" Type="char" MaxLength="15" Nullable="false" />
+          <Property Name="PASS" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="LOAITK" Type="char" MaxLength="3" />
+        </EntityType>
+        <Association Name="FK__DANHGIA_D__IDKHA__59FA5E80">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DANHGIA_DV" Type="Self.DANHGIA_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="DANHGIA_DV">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_DV__MADV__5AEE82B9">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="DANHGIA_DV" Type="Self.DANHGIA_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="DANHGIA_DV">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_N__IDKHA__5BE2A6F2">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DANHGIA_NV" Type="Self.DANHGIA_NV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="DANHGIA_NV">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_N__IDNHA__5CD6CB2B">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="DANHGIA_NV" Type="Self.DANHGIA_NV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Principal>
+            <Dependent Role="DANHGIA_NV">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_S__IDKHA__5DCAEF64">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DANHGIA_SP" Type="Self.DANHGIA_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="DANHGIA_SP">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_SP__IDSP__5EBF139D">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="DANHGIA_SP" Type="Self.DANHGIA_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="IDSP" />
+            </Principal>
+            <Dependent Role="DANHGIA_SP">
+              <PropertyRef Name="IDSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DICHVU__IDDM__5FB337D6">
+          <End Role="DANHMUCDV" Type="Self.DANHMUCDV" Multiplicity="1" />
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANHMUCDV">
+              <PropertyRef Name="IDDM" />
+            </Principal>
+            <Dependent Role="DICHVU">
+              <PropertyRef Name="IDDM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__IDKHACHH__60A75C0F">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__IDNHANVI__619B8048">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__MAKM__628FA481">
+          <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="0..1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHUYENMAI">
+              <PropertyRef Name="MAKM" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="MAKM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON_DV__IDHOA__6383C8BA">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="HOADON_DV" Type="Self.HOADON_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="IDHOADON" />
+            </Principal>
+            <Dependent Role="HOADON_DV">
+              <PropertyRef Name="IDHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON_DV__MADV__6477ECF3">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="HOADON_DV" Type="Self.HOADON_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="HOADON_DV">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON_SP__IDHOA__656C112C">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="HOADON_SP" Type="Self.HOADON_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="IDHOADON" />
+            </Principal>
+            <Dependent Role="HOADON_SP">
+              <PropertyRef Name="IDHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON_SP__IDSP__66603565">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="HOADON_SP" Type="Self.HOADON_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="IDSP" />
+            </Principal>
+            <Dependent Role="HOADON_SP">
+              <PropertyRef Name="IDSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHACHHANG__TENTK__6754599E">
+          <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="1" />
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAIKHOAN">
+              <PropertyRef Name="TENTK" />
+            </Principal>
+            <Dependent Role="KHACHHANG">
+              <PropertyRef Name="TENTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LICHHEN__IDKHACH__68487DD7">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="LICHHEN" Type="Self.LICHHEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="LICHHEN">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NHANVIEN___IDNHA__6A30C649">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="NHANVIEN_DV" Type="Self.NHANVIEN_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Principal>
+            <Dependent Role="NHANVIEN_DV">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NHANVIEN__TENTK__693CA210">
+          <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="1" />
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAIKHOAN">
+              <PropertyRef Name="TENTK" />
+            </Principal>
+            <Dependent Role="NHANVIEN">
+              <PropertyRef Name="TENTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NHANVIEN_D__MADV__6B24EA82">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="NHANVIEN_DV" Type="Self.NHANVIEN_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="NHANVIEN_DV">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANPHAM__IDDM__6C190EBB">
+          <End Role="DANHMUCSP" Type="Self.DANHMUCSP" Multiplicity="1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANHMUCSP">
+              <PropertyRef Name="IDDM" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="IDDM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANPHAM_DV__IDSP__6D0D32F4">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="SANPHAM_DV" Type="Self.SANPHAM_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="IDSP" />
+            </Principal>
+            <Dependent Role="SANPHAM_DV">
+              <PropertyRef Name="IDSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANPHAM_DV__MADV__6E01572D">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="SANPHAM_DV" Type="Self.SANPHAM_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="SANPHAM_DV">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KHOCTHATNHIEUDBStoreContainer">
+          <EntitySet Name="DANHGIA_DV" EntityType="Self.DANHGIA_DV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANHGIA_NV" EntityType="Self.DANHGIA_NV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANHMUCDV" EntityType="Self.DANHMUCDV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANHMUCSP" EntityType="Self.DANHMUCSP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DICHVU" EntityType="Self.DICHVU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADON_DV" EntityType="Self.HOADON_DV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOADON_SP" EntityType="Self.HOADON_SP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHUYENMAI" EntityType="Self.KHUYENMAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LICHHEN" EntityType="Self.LICHHEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NHANVIEN_DV" EntityType="Self.NHANVIEN_DV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SANPHAM_DV" EntityType="Self.SANPHAM_DV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TAIKHOAN" EntityType="Self.TAIKHOAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DANHGIA_SP" EntityType="Self.DANHGIA_SP" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DANHGIA_SP].[MADANHGIA] AS [MADANHGIA], 
+    [DANHGIA_SP].[SOSAO] AS [SOSAO], 
+    [DANHGIA_SP].[IDSP] AS [IDSP], 
+    [DANHGIA_SP].[IDKHACHHANG] AS [IDKHACHHANG]
+    FROM [dbo].[DANHGIA_SP] AS [DANHGIA_SP]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__DANHGIA_D__IDKHA__59FA5E80" Association="Self.FK__DANHGIA_D__IDKHA__59FA5E80">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="DANHGIA_DV" EntitySet="DANHGIA_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_DV__MADV__5AEE82B9" Association="Self.FK__DANHGIA_DV__MADV__5AEE82B9">
+            <End Role="DICHVU" EntitySet="DICHVU" />
+            <End Role="DANHGIA_DV" EntitySet="DANHGIA_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_N__IDKHA__5BE2A6F2" Association="Self.FK__DANHGIA_N__IDKHA__5BE2A6F2">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="DANHGIA_NV" EntitySet="DANHGIA_NV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_N__IDNHA__5CD6CB2B" Association="Self.FK__DANHGIA_N__IDNHA__5CD6CB2B">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="DANHGIA_NV" EntitySet="DANHGIA_NV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_S__IDKHA__5DCAEF64" Association="Self.FK__DANHGIA_S__IDKHA__5DCAEF64">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="DANHGIA_SP" EntitySet="DANHGIA_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_SP__IDSP__5EBF139D" Association="Self.FK__DANHGIA_SP__IDSP__5EBF139D">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="DANHGIA_SP" EntitySet="DANHGIA_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DICHVU__IDDM__5FB337D6" Association="Self.FK__DICHVU__IDDM__5FB337D6">
+            <End Role="DANHMUCDV" EntitySet="DANHMUCDV" />
+            <End Role="DICHVU" EntitySet="DICHVU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__IDKHACHH__60A75C0F" Association="Self.FK__HOADON__IDKHACHH__60A75C0F">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="HOADON" EntitySet="HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__IDNHANVI__619B8048" Association="Self.FK__HOADON__IDNHANVI__619B8048">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="HOADON" EntitySet="HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__MAKM__628FA481" Association="Self.FK__HOADON__MAKM__628FA481">
+            <End Role="KHUYENMAI" EntitySet="KHUYENMAI" />
+            <End Role="HOADON" EntitySet="HOADON" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON_DV__IDHOA__6383C8BA" Association="Self.FK__HOADON_DV__IDHOA__6383C8BA">
+            <End Role="HOADON" EntitySet="HOADON" />
+            <End Role="HOADON_DV" EntitySet="HOADON_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON_DV__MADV__6477ECF3" Association="Self.FK__HOADON_DV__MADV__6477ECF3">
+            <End Role="DICHVU" EntitySet="DICHVU" />
+            <End Role="HOADON_DV" EntitySet="HOADON_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON_SP__IDHOA__656C112C" Association="Self.FK__HOADON_SP__IDHOA__656C112C">
+            <End Role="HOADON" EntitySet="HOADON" />
+            <End Role="HOADON_SP" EntitySet="HOADON_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON_SP__IDSP__66603565" Association="Self.FK__HOADON_SP__IDSP__66603565">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="HOADON_SP" EntitySet="HOADON_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHACHHANG__TENTK__6754599E" Association="Self.FK__KHACHHANG__TENTK__6754599E">
+            <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LICHHEN__IDKHACH__68487DD7" Association="Self.FK__LICHHEN__IDKHACH__68487DD7">
+            <End Role="KHACHHANG" EntitySet="KHACHHANG" />
+            <End Role="LICHHEN" EntitySet="LICHHEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NHANVIEN___IDNHA__6A30C649" Association="Self.FK__NHANVIEN___IDNHA__6A30C649">
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+            <End Role="NHANVIEN_DV" EntitySet="NHANVIEN_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NHANVIEN__TENTK__693CA210" Association="Self.FK__NHANVIEN__TENTK__693CA210">
+            <End Role="TAIKHOAN" EntitySet="TAIKHOAN" />
+            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NHANVIEN_D__MADV__6B24EA82" Association="Self.FK__NHANVIEN_D__MADV__6B24EA82">
+            <End Role="DICHVU" EntitySet="DICHVU" />
+            <End Role="NHANVIEN_DV" EntitySet="NHANVIEN_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM__IDDM__6C190EBB" Association="Self.FK__SANPHAM__IDDM__6C190EBB">
+            <End Role="DANHMUCSP" EntitySet="DANHMUCSP" />
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM_DV__IDSP__6D0D32F4" Association="Self.FK__SANPHAM_DV__IDSP__6D0D32F4">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="SANPHAM_DV" EntitySet="SANPHAM_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM_DV__MADV__6E01572D" Association="Self.FK__SANPHAM_DV__MADV__6E01572D">
+            <End Role="DICHVU" EntitySet="DICHVU" />
+            <End Role="SANPHAM_DV" EntitySet="SANPHAM_DV" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KHOCTHATNHIEUDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DANHGIA_DV">
+          <Key>
+            <PropertyRef Name="MADANHGIA" />
+          </Key>
+          <Property Name="MADANHGIA" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SOSAO" Type="Byte" />
+          <Property Name="MADV" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DANHGIA_D__IDKHA__59FA5E80" FromRole="DANHGIA_DV" ToRole="KHACHHANG" />
+          <NavigationProperty Name="DICHVU" Relationship="Self.FK__DANHGIA_DV__MADV__5AEE82B9" FromRole="DANHGIA_DV" ToRole="DICHVU" />
+        </EntityType>
+        <EntityType Name="DANHGIA_NV">
+          <Key>
+            <PropertyRef Name="MADANHGIA" />
+          </Key>
+          <Property Name="MADANHGIA" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SOSAO" Type="Byte" />
+          <Property Name="IDNHANVIEN" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DANHGIA_N__IDKHA__5BE2A6F2" FromRole="DANHGIA_NV" ToRole="KHACHHANG" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__DANHGIA_N__IDNHA__5CD6CB2B" FromRole="DANHGIA_NV" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="DANHMUCDV">
+          <Key>
+            <PropertyRef Name="IDDM" />
+          </Key>
+          <Property Name="IDDM" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENDM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IMG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DICHVUs" Relationship="Self.FK__DICHVU__IDDM__5FB337D6" FromRole="DANHMUCDV" ToRole="DICHVU" />
+        </EntityType>
+        <EntityType Name="DANHMUCSP">
+          <Key>
+            <PropertyRef Name="IDDM" />
+          </Key>
+          <Property Name="IDDM" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENDM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IMG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="SANPHAMs" Relationship="Self.FK__SANPHAM__IDDM__6C190EBB" FromRole="DANHMUCSP" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="DICHVU">
+          <Key>
+            <PropertyRef Name="MADV" />
+          </Key>
+          <Property Name="MADV" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENDV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMG2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMG3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GIA" Type="Int32" Nullable="false" />
+          <Property Name="TONGDANHGIA" Type="Double" Nullable="false" />
+          <Property Name="IDDM" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DONVITINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GIAMGIA" Type="Int32" />
+          <NavigationProperty Name="DANHGIA_DV" Relationship="Self.FK__DANHGIA_DV__MADV__5AEE82B9" FromRole="DICHVU" ToRole="DANHGIA_DV" />
+          <NavigationProperty Name="DANHMUCDV" Relationship="Self.FK__DICHVU__IDDM__5FB337D6" FromRole="DICHVU" ToRole="DANHMUCDV" />
+          <NavigationProperty Name="HOADON_DV" Relationship="Self.FK__HOADON_DV__MADV__6477ECF3" FromRole="DICHVU" ToRole="HOADON_DV" />
+          <NavigationProperty Name="NHANVIEN_DV" Relationship="Self.FK__NHANVIEN_D__MADV__6B24EA82" FromRole="DICHVU" ToRole="NHANVIEN_DV" />
+          <NavigationProperty Name="SANPHAM_DV" Relationship="Self.FK__SANPHAM_DV__MADV__6E01572D" FromRole="DICHVU" ToRole="SANPHAM_DV" />
+        </EntityType>
+        <EntityType Name="HOADON">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="IDHOADON" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TONGGIA" Type="Int32" Nullable="false" />
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <Property Name="NGAY" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="GIO" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="MAKM" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="TENKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TENNV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SODT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IDNHANVIEN" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__HOADON__IDKHACHH__60A75C0F" FromRole="HOADON" ToRole="KHACHHANG" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__HOADON__IDNHANVI__619B8048" FromRole="HOADON" ToRole="NHANVIEN" />
+          <NavigationProperty Name="KHUYENMAI" Relationship="Self.FK__HOADON__MAKM__628FA481" FromRole="HOADON" ToRole="KHUYENMAI" />
+          <NavigationProperty Name="HOADON_DV" Relationship="Self.FK__HOADON_DV__IDHOA__6383C8BA" FromRole="HOADON" ToRole="HOADON_DV" />
+          <NavigationProperty Name="HOADON_SP" Relationship="Self.FK__HOADON_SP__IDHOA__656C112C" FromRole="HOADON" ToRole="HOADON_SP" />
+        </EntityType>
+        <EntityType Name="HOADON_DV">
+          <Key>
+            <PropertyRef Name="IDHOADON" />
+            <PropertyRef Name="MADV" />
+          </Key>
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <Property Name="THANHTIEN" Type="Int32" Nullable="false" />
+          <Property Name="GIA" Type="Int32" Nullable="false" />
+          <Property Name="GIAMGIA" Type="Int32" Nullable="false" />
+          <Property Name="IDHOADON" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MADV" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DICHVU" Relationship="Self.FK__HOADON_DV__MADV__6477ECF3" FromRole="HOADON_DV" ToRole="DICHVU" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK__HOADON_DV__IDHOA__6383C8BA" FromRole="HOADON_DV" ToRole="HOADON" />
+        </EntityType>
+        <EntityType Name="HOADON_SP">
+          <Key>
+            <PropertyRef Name="IDSP" />
+            <PropertyRef Name="IDHOADON" />
+          </Key>
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <Property Name="TONGTIEN" Type="Int32" Nullable="false" />
+          <Property Name="GIA" Type="Int32" Nullable="false" />
+          <Property Name="GIAMGIA" Type="Int32" Nullable="false" />
+          <Property Name="THUE" Type="Int32" Nullable="false" />
+          <Property Name="IDSP" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IDHOADON" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK__HOADON_SP__IDHOA__656C112C" FromRole="HOADON_SP" ToRole="HOADON" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__HOADON_SP__IDSP__66603565" FromRole="HOADON_SP" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="KHACHHANG">
+          <Key>
+            <PropertyRef Name="IDKHACHHANG" />
+          </Key>
+          <Property Name="HANG" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GIOITINH" Type="Boolean" />
+          <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+          <Property Name="SODT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENTK" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CHITIEU" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DANHGIA_DV" Relationship="Self.FK__DANHGIA_D__IDKHA__59FA5E80" FromRole="KHACHHANG" ToRole="DANHGIA_DV" />
+          <NavigationProperty Name="DANHGIA_NV" Relationship="Self.FK__DANHGIA_N__IDKHA__5BE2A6F2" FromRole="KHACHHANG" ToRole="DANHGIA_NV" />
+          <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__IDKHACHH__60A75C0F" FromRole="KHACHHANG" ToRole="HOADON" />
+          <NavigationProperty Name="DANHGIA_SP" Relationship="Self.FK__DANHGIA_S__IDKHA__5DCAEF64" FromRole="KHACHHANG" ToRole="DANHGIA_SP" />
+          <NavigationProperty Name="TAIKHOAN" Relationship="Self.FK__KHACHHANG__TENTK__6754599E" FromRole="KHACHHANG" ToRole="TAIKHOAN" />
+          <NavigationProperty Name="LICHHENs" Relationship="Self.FK__LICHHEN__IDKHACH__68487DD7" FromRole="KHACHHANG" ToRole="LICHHEN" />
+        </EntityType>
+        <EntityType Name="KHUYENMAI">
+          <Key>
+            <PropertyRef Name="MAKM" />
+          </Key>
+          <Property Name="MAKM" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENCTKM" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TRANGTHAI" Type="Boolean" />
+          <Property Name="GIAMGIA" Type="Int32" Nullable="false" />
+          <Property Name="THOIGIANBD" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="THOIGIANKT" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__MAKM__628FA481" FromRole="KHUYENMAI" ToRole="HOADON" />
+        </EntityType>
+        <EntityType Name="LICHHEN">
+          <Key>
+            <PropertyRef Name="MADL" />
+          </Key>
+          <Property Name="MADL" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NGAY" Type="DateTime" Precision="0" />
+          <Property Name="THOIGIAN" Type="Time" Precision="0" />
+          <Property Name="TRANGTHAI" Type="Boolean" Nullable="false" />
+          <Property Name="GHICHU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TENKH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SODTKH" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__LICHHEN__IDKHACH__68487DD7" FromRole="LICHHEN" ToRole="KHACHHANG" />
+        </EntityType>
+        <EntityType Name="NHANVIEN">
+          <Key>
+            <PropertyRef Name="IDNHANVIEN" />
+          </Key>
+          <Property Name="IDNHANVIEN" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENNV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GIOITINH" Type="Boolean" />
+          <Property Name="DIACHI" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TONGDANHGIA" Type="Double" Nullable="false" />
+          <Property Name="NGAYSINH" Type="DateTime" Precision="0" />
+          <Property Name="SODT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CHUCVU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TENTK" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="NGHIEPVU" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DANHGIA_NV" Relationship="Self.FK__DANHGIA_N__IDNHA__5CD6CB2B" FromRole="NHANVIEN" ToRole="DANHGIA_NV" />
+          <NavigationProperty Name="HOADONs" Relationship="Self.FK__HOADON__IDNHANVI__619B8048" FromRole="NHANVIEN" ToRole="HOADON" />
+          <NavigationProperty Name="NHANVIEN_DV" Relationship="Self.FK__NHANVIEN___IDNHA__6A30C649" FromRole="NHANVIEN" ToRole="NHANVIEN_DV" />
+          <NavigationProperty Name="TAIKHOAN" Relationship="Self.FK__NHANVIEN__TENTK__693CA210" FromRole="NHANVIEN" ToRole="TAIKHOAN" />
+        </EntityType>
+        <EntityType Name="NHANVIEN_DV">
+          <Key>
+            <PropertyRef Name="MADV" />
+            <PropertyRef Name="IDNHANVIEN" />
+          </Key>
+          <Property Name="MADV" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENDV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDNHANVIEN" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENNV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DICHVU" Relationship="Self.FK__NHANVIEN_D__MADV__6B24EA82" FromRole="NHANVIEN_DV" ToRole="DICHVU" />
+          <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__NHANVIEN___IDNHA__6A30C649" FromRole="NHANVIEN_DV" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="SANPHAM">
+          <Key>
+            <PropertyRef Name="IDSP" />
+          </Key>
+          <Property Name="IDSP" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMG" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMG2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IMG3" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GIA" Type="Int32" Nullable="false" />
+          <Property Name="TONGDANHGIA" Type="Double" Nullable="false" />
+          <Property Name="THUE" Type="Int32" Nullable="false" />
+          <Property Name="GIAMGIA" Type="Int32" />
+          <Property Name="IDDM" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DONVITINH" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SOLUONG" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DANHMUCSP" Relationship="Self.FK__SANPHAM__IDDM__6C190EBB" FromRole="SANPHAM" ToRole="DANHMUCSP" />
+          <NavigationProperty Name="HOADON_SP" Relationship="Self.FK__HOADON_SP__IDSP__66603565" FromRole="SANPHAM" ToRole="HOADON_SP" />
+          <NavigationProperty Name="DANHGIA_SP" Relationship="Self.FK__DANHGIA_SP__IDSP__5EBF139D" FromRole="SANPHAM" ToRole="DANHGIA_SP" />
+          <NavigationProperty Name="SANPHAM_DV" Relationship="Self.FK__SANPHAM_DV__IDSP__6D0D32F4" FromRole="SANPHAM" ToRole="SANPHAM_DV" />
+        </EntityType>
+        <EntityType Name="SANPHAM_DV">
+          <Key>
+            <PropertyRef Name="MADV" />
+            <PropertyRef Name="IDSP" />
+          </Key>
+          <Property Name="MADV" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENDV" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDSP" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="TENSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="DICHVU" Relationship="Self.FK__SANPHAM_DV__MADV__6E01572D" FromRole="SANPHAM_DV" ToRole="DICHVU" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__SANPHAM_DV__IDSP__6D0D32F4" FromRole="SANPHAM_DV" ToRole="SANPHAM" />
+        </EntityType>
+        <EntityType Name="TAIKHOAN">
+          <Key>
+            <PropertyRef Name="TENTK" />
+          </Key>
+          <Property Name="TENTK" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PASS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LOAITK" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="KHACHHANGs" Relationship="Self.FK__KHACHHANG__TENTK__6754599E" FromRole="TAIKHOAN" ToRole="KHACHHANG" />
+          <NavigationProperty Name="NHANVIENs" Relationship="Self.FK__NHANVIEN__TENTK__693CA210" FromRole="TAIKHOAN" ToRole="NHANVIEN" />
+        </EntityType>
+        <EntityType Name="DANHGIA_SP">
+          <Key>
+            <PropertyRef Name="MADANHGIA" />
+            <PropertyRef Name="IDSP" />
+            <PropertyRef Name="IDKHACHHANG" />
+          </Key>
+          <Property Name="MADANHGIA" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SOSAO" Type="Byte" />
+          <Property Name="IDSP" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IDKHACHHANG" Type="String" MaxLength="15" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="KHACHHANG" Relationship="Self.FK__DANHGIA_S__IDKHA__5DCAEF64" FromRole="DANHGIA_SP" ToRole="KHACHHANG" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK__DANHGIA_SP__IDSP__5EBF139D" FromRole="DANHGIA_SP" ToRole="SANPHAM" />
+        </EntityType>
+        <Association Name="FK__DANHGIA_D__IDKHA__59FA5E80">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DANHGIA_DV" Type="Self.DANHGIA_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="DANHGIA_DV">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_DV__MADV__5AEE82B9">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="DANHGIA_DV" Type="Self.DANHGIA_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="DANHGIA_DV">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_N__IDKHA__5BE2A6F2">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DANHGIA_NV" Type="Self.DANHGIA_NV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="DANHGIA_NV">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_N__IDNHA__5CD6CB2B">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="DANHGIA_NV" Type="Self.DANHGIA_NV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Principal>
+            <Dependent Role="DANHGIA_NV">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DICHVU__IDDM__5FB337D6">
+          <End Role="DANHMUCDV" Type="Self.DANHMUCDV" Multiplicity="1" />
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANHMUCDV">
+              <PropertyRef Name="IDDM" />
+            </Principal>
+            <Dependent Role="DICHVU">
+              <PropertyRef Name="IDDM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANPHAM__IDDM__6C190EBB">
+          <End Role="DANHMUCSP" Type="Self.DANHMUCSP" Multiplicity="1" />
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DANHMUCSP">
+              <PropertyRef Name="IDDM" />
+            </Principal>
+            <Dependent Role="SANPHAM">
+              <PropertyRef Name="IDDM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON_DV__MADV__6477ECF3">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="HOADON_DV" Type="Self.HOADON_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="HOADON_DV">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NHANVIEN_D__MADV__6B24EA82">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="NHANVIEN_DV" Type="Self.NHANVIEN_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="NHANVIEN_DV">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANPHAM_DV__MADV__6E01572D">
+          <End Role="DICHVU" Type="Self.DICHVU" Multiplicity="1" />
+          <End Role="SANPHAM_DV" Type="Self.SANPHAM_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DICHVU">
+              <PropertyRef Name="MADV" />
+            </Principal>
+            <Dependent Role="SANPHAM_DV">
+              <PropertyRef Name="MADV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__IDKHACHH__60A75C0F">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__IDNHANVI__619B8048">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON__MAKM__628FA481">
+          <End Role="KHUYENMAI" Type="Self.KHUYENMAI" Multiplicity="0..1" />
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHUYENMAI">
+              <PropertyRef Name="MAKM" />
+            </Principal>
+            <Dependent Role="HOADON">
+              <PropertyRef Name="MAKM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON_DV__IDHOA__6383C8BA">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="HOADON_DV" Type="Self.HOADON_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="IDHOADON" />
+            </Principal>
+            <Dependent Role="HOADON_DV">
+              <PropertyRef Name="IDHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON_SP__IDHOA__656C112C">
+          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
+          <End Role="HOADON_SP" Type="Self.HOADON_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOADON">
+              <PropertyRef Name="IDHOADON" />
+            </Principal>
+            <Dependent Role="HOADON_SP">
+              <PropertyRef Name="IDHOADON" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__HOADON_SP__IDSP__66603565">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="HOADON_SP" Type="Self.HOADON_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="IDSP" />
+            </Principal>
+            <Dependent Role="HOADON_SP">
+              <PropertyRef Name="IDSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_S__IDKHA__5DCAEF64">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="DANHGIA_SP" Type="Self.DANHGIA_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="DANHGIA_SP">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHACHHANG__TENTK__6754599E">
+          <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="1" />
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAIKHOAN">
+              <PropertyRef Name="TENTK" />
+            </Principal>
+            <Dependent Role="KHACHHANG">
+              <PropertyRef Name="TENTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LICHHEN__IDKHACH__68487DD7">
+          <End Role="KHACHHANG" Type="Self.KHACHHANG" Multiplicity="1" />
+          <End Role="LICHHEN" Type="Self.LICHHEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHACHHANG">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Principal>
+            <Dependent Role="LICHHEN">
+              <PropertyRef Name="IDKHACHHANG" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NHANVIEN___IDNHA__6A30C649">
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+          <End Role="NHANVIEN_DV" Type="Self.NHANVIEN_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NHANVIEN">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Principal>
+            <Dependent Role="NHANVIEN_DV">
+              <PropertyRef Name="IDNHANVIEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__NHANVIEN__TENTK__693CA210">
+          <End Role="TAIKHOAN" Type="Self.TAIKHOAN" Multiplicity="1" />
+          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TAIKHOAN">
+              <PropertyRef Name="TENTK" />
+            </Principal>
+            <Dependent Role="NHANVIEN">
+              <PropertyRef Name="TENTK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DANHGIA_SP__IDSP__5EBF139D">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="DANHGIA_SP" Type="Self.DANHGIA_SP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="IDSP" />
+            </Principal>
+            <Dependent Role="DANHGIA_SP">
+              <PropertyRef Name="IDSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__SANPHAM_DV__IDSP__6D0D32F4">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="SANPHAM_DV" Type="Self.SANPHAM_DV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="IDSP" />
+            </Principal>
+            <Dependent Role="SANPHAM_DV">
+              <PropertyRef Name="IDSP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KHOCTHATNHIEUDB1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DANHGIA_DV" EntityType="Self.DANHGIA_DV" />
+          <EntitySet Name="DANHGIA_NV" EntityType="Self.DANHGIA_NV" />
+          <EntitySet Name="DANHMUCDVs" EntityType="Self.DANHMUCDV" />
+          <EntitySet Name="DANHMUCSPs" EntityType="Self.DANHMUCSP" />
+          <EntitySet Name="DICHVUs" EntityType="Self.DICHVU" />
+          <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
+          <EntitySet Name="HOADON_DV" EntityType="Self.HOADON_DV" />
+          <EntitySet Name="HOADON_SP" EntityType="Self.HOADON_SP" />
+          <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
+          <EntitySet Name="KHUYENMAIs" EntityType="Self.KHUYENMAI" />
+          <EntitySet Name="LICHHENs" EntityType="Self.LICHHEN" />
+          <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
+          <EntitySet Name="NHANVIEN_DV" EntityType="Self.NHANVIEN_DV" />
+          <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+          <EntitySet Name="SANPHAM_DV" EntityType="Self.SANPHAM_DV" />
+          <EntitySet Name="TAIKHOANs" EntityType="Self.TAIKHOAN" />
+          <EntitySet Name="DANHGIA_SP" EntityType="Self.DANHGIA_SP" />
+          <AssociationSet Name="FK__DANHGIA_D__IDKHA__59FA5E80" Association="Self.FK__DANHGIA_D__IDKHA__59FA5E80">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="DANHGIA_DV" EntitySet="DANHGIA_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_DV__MADV__5AEE82B9" Association="Self.FK__DANHGIA_DV__MADV__5AEE82B9">
+            <End Role="DICHVU" EntitySet="DICHVUs" />
+            <End Role="DANHGIA_DV" EntitySet="DANHGIA_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_N__IDKHA__5BE2A6F2" Association="Self.FK__DANHGIA_N__IDKHA__5BE2A6F2">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="DANHGIA_NV" EntitySet="DANHGIA_NV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_N__IDNHA__5CD6CB2B" Association="Self.FK__DANHGIA_N__IDNHA__5CD6CB2B">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="DANHGIA_NV" EntitySet="DANHGIA_NV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DICHVU__IDDM__5FB337D6" Association="Self.FK__DICHVU__IDDM__5FB337D6">
+            <End Role="DANHMUCDV" EntitySet="DANHMUCDVs" />
+            <End Role="DICHVU" EntitySet="DICHVUs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM__IDDM__6C190EBB" Association="Self.FK__SANPHAM__IDDM__6C190EBB">
+            <End Role="DANHMUCSP" EntitySet="DANHMUCSPs" />
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON_DV__MADV__6477ECF3" Association="Self.FK__HOADON_DV__MADV__6477ECF3">
+            <End Role="DICHVU" EntitySet="DICHVUs" />
+            <End Role="HOADON_DV" EntitySet="HOADON_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NHANVIEN_D__MADV__6B24EA82" Association="Self.FK__NHANVIEN_D__MADV__6B24EA82">
+            <End Role="DICHVU" EntitySet="DICHVUs" />
+            <End Role="NHANVIEN_DV" EntitySet="NHANVIEN_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM_DV__MADV__6E01572D" Association="Self.FK__SANPHAM_DV__MADV__6E01572D">
+            <End Role="DICHVU" EntitySet="DICHVUs" />
+            <End Role="SANPHAM_DV" EntitySet="SANPHAM_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__IDKHACHH__60A75C0F" Association="Self.FK__HOADON__IDKHACHH__60A75C0F">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="HOADON" EntitySet="HOADONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__IDNHANVI__619B8048" Association="Self.FK__HOADON__IDNHANVI__619B8048">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="HOADON" EntitySet="HOADONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON__MAKM__628FA481" Association="Self.FK__HOADON__MAKM__628FA481">
+            <End Role="KHUYENMAI" EntitySet="KHUYENMAIs" />
+            <End Role="HOADON" EntitySet="HOADONs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON_DV__IDHOA__6383C8BA" Association="Self.FK__HOADON_DV__IDHOA__6383C8BA">
+            <End Role="HOADON" EntitySet="HOADONs" />
+            <End Role="HOADON_DV" EntitySet="HOADON_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON_SP__IDHOA__656C112C" Association="Self.FK__HOADON_SP__IDHOA__656C112C">
+            <End Role="HOADON" EntitySet="HOADONs" />
+            <End Role="HOADON_SP" EntitySet="HOADON_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__HOADON_SP__IDSP__66603565" Association="Self.FK__HOADON_SP__IDSP__66603565">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="HOADON_SP" EntitySet="HOADON_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_S__IDKHA__5DCAEF64" Association="Self.FK__DANHGIA_S__IDKHA__5DCAEF64">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="DANHGIA_SP" EntitySet="DANHGIA_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHACHHANG__TENTK__6754599E" Association="Self.FK__KHACHHANG__TENTK__6754599E">
+            <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LICHHEN__IDKHACH__68487DD7" Association="Self.FK__LICHHEN__IDKHACH__68487DD7">
+            <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
+            <End Role="LICHHEN" EntitySet="LICHHENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NHANVIEN___IDNHA__6A30C649" Association="Self.FK__NHANVIEN___IDNHA__6A30C649">
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+            <End Role="NHANVIEN_DV" EntitySet="NHANVIEN_DV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__NHANVIEN__TENTK__693CA210" Association="Self.FK__NHANVIEN__TENTK__693CA210">
+            <End Role="TAIKHOAN" EntitySet="TAIKHOANs" />
+            <End Role="NHANVIEN" EntitySet="NHANVIENs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DANHGIA_SP__IDSP__5EBF139D" Association="Self.FK__DANHGIA_SP__IDSP__5EBF139D">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="DANHGIA_SP" EntitySet="DANHGIA_SP" />
+          </AssociationSet>
+          <AssociationSet Name="FK__SANPHAM_DV__IDSP__6D0D32F4" Association="Self.FK__SANPHAM_DV__IDSP__6D0D32F4">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="SANPHAM_DV" EntitySet="SANPHAM_DV" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KHOCTHATNHIEUDBStoreContainer" CdmEntityContainer="KHOCTHATNHIEUDB1">
+          <EntitySetMapping Name="DANHGIA_DV">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.DANHGIA_DV">
+              <MappingFragment StoreEntitySet="DANHGIA_DV">
+                <ScalarProperty Name="MADANHGIA" ColumnName="MADANHGIA" />
+                <ScalarProperty Name="SOSAO" ColumnName="SOSAO" />
+                <ScalarProperty Name="MADV" ColumnName="MADV" />
+                <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DANHGIA_NV">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.DANHGIA_NV">
+              <MappingFragment StoreEntitySet="DANHGIA_NV">
+                <ScalarProperty Name="MADANHGIA" ColumnName="MADANHGIA" />
+                <ScalarProperty Name="SOSAO" ColumnName="SOSAO" />
+                <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+                <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DANHMUCDVs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.DANHMUCDV">
+              <MappingFragment StoreEntitySet="DANHMUCDV">
+                <ScalarProperty Name="IDDM" ColumnName="IDDM" />
+                <ScalarProperty Name="TENDM" ColumnName="TENDM" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DANHMUCSPs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.DANHMUCSP">
+              <MappingFragment StoreEntitySet="DANHMUCSP">
+                <ScalarProperty Name="IDDM" ColumnName="IDDM" />
+                <ScalarProperty Name="TENDM" ColumnName="TENDM" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DICHVUs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.DICHVU">
+              <MappingFragment StoreEntitySet="DICHVU">
+                <ScalarProperty Name="MADV" ColumnName="MADV" />
+                <ScalarProperty Name="TENDV" ColumnName="TENDV" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="IMG2" ColumnName="IMG2" />
+                <ScalarProperty Name="IMG3" ColumnName="IMG3" />
+                <ScalarProperty Name="GIA" ColumnName="GIA" />
+                <ScalarProperty Name="TONGDANHGIA" ColumnName="TONGDANHGIA" />
+                <ScalarProperty Name="IDDM" ColumnName="IDDM" />
+                <ScalarProperty Name="DONVITINH" ColumnName="DONVITINH" />
+                <ScalarProperty Name="GIAMGIA" ColumnName="GIAMGIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADONs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.HOADON">
+              <MappingFragment StoreEntitySet="HOADON">
+                <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
+                <ScalarProperty Name="TONGGIA" ColumnName="TONGGIA" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="GIO" ColumnName="GIO" />
+                <ScalarProperty Name="MAKM" ColumnName="MAKM" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+                <ScalarProperty Name="SODT" ColumnName="SODT" />
+                <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+                <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADON_DV">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.HOADON_DV">
+              <MappingFragment StoreEntitySet="HOADON_DV">
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="THANHTIEN" ColumnName="THANHTIEN" />
+                <ScalarProperty Name="GIA" ColumnName="GIA" />
+                <ScalarProperty Name="GIAMGIA" ColumnName="GIAMGIA" />
+                <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
+                <ScalarProperty Name="MADV" ColumnName="MADV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOADON_SP">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.HOADON_SP">
+              <MappingFragment StoreEntitySet="HOADON_SP">
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+                <ScalarProperty Name="TONGTIEN" ColumnName="TONGTIEN" />
+                <ScalarProperty Name="GIA" ColumnName="GIA" />
+                <ScalarProperty Name="GIAMGIA" ColumnName="GIAMGIA" />
+                <ScalarProperty Name="THUE" ColumnName="THUE" />
+                <ScalarProperty Name="IDSP" ColumnName="IDSP" />
+                <ScalarProperty Name="IDHOADON" ColumnName="IDHOADON" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHACHHANGs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.KHACHHANG">
+              <MappingFragment StoreEntitySet="KHACHHANG">
+                <ScalarProperty Name="HANG" ColumnName="HANG" />
+                <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="SODT" ColumnName="SODT" />
+                <ScalarProperty Name="TENTK" ColumnName="TENTK" />
+                <ScalarProperty Name="CHITIEU" ColumnName="CHITIEU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHUYENMAIs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.KHUYENMAI">
+              <MappingFragment StoreEntitySet="KHUYENMAI">
+                <ScalarProperty Name="MAKM" ColumnName="MAKM" />
+                <ScalarProperty Name="TENCTKM" ColumnName="TENCTKM" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="GIAMGIA" ColumnName="GIAMGIA" />
+                <ScalarProperty Name="THOIGIANBD" ColumnName="THOIGIANBD" />
+                <ScalarProperty Name="THOIGIANKT" ColumnName="THOIGIANKT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LICHHENs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.LICHHEN">
+              <MappingFragment StoreEntitySet="LICHHEN">
+                <ScalarProperty Name="MADL" ColumnName="MADL" />
+                <ScalarProperty Name="NGAY" ColumnName="NGAY" />
+                <ScalarProperty Name="THOIGIAN" ColumnName="THOIGIAN" />
+                <ScalarProperty Name="TRANGTHAI" ColumnName="TRANGTHAI" />
+                <ScalarProperty Name="GHICHU" ColumnName="GHICHU" />
+                <ScalarProperty Name="TENKH" ColumnName="TENKH" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="SODTKH" ColumnName="SODTKH" />
+                <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIENs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.NHANVIEN">
+              <MappingFragment StoreEntitySet="NHANVIEN">
+                <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+                <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+                <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
+                <ScalarProperty Name="DIACHI" ColumnName="DIACHI" />
+                <ScalarProperty Name="TONGDANHGIA" ColumnName="TONGDANHGIA" />
+                <ScalarProperty Name="NGAYSINH" ColumnName="NGAYSINH" />
+                <ScalarProperty Name="SODT" ColumnName="SODT" />
+                <ScalarProperty Name="CHUCVU" ColumnName="CHUCVU" />
+                <ScalarProperty Name="TENTK" ColumnName="TENTK" />
+                <ScalarProperty Name="NGHIEPVU" ColumnName="NGHIEPVU" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NHANVIEN_DV">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.NHANVIEN_DV">
+              <MappingFragment StoreEntitySet="NHANVIEN_DV">
+                <ScalarProperty Name="MADV" ColumnName="MADV" />
+                <ScalarProperty Name="TENDV" ColumnName="TENDV" />
+                <ScalarProperty Name="IDNHANVIEN" ColumnName="IDNHANVIEN" />
+                <ScalarProperty Name="TENNV" ColumnName="TENNV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SANPHAMs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.SANPHAM">
+              <MappingFragment StoreEntitySet="SANPHAM">
+                <ScalarProperty Name="IDSP" ColumnName="IDSP" />
+                <ScalarProperty Name="TENSP" ColumnName="TENSP" />
+                <ScalarProperty Name="MOTA" ColumnName="MOTA" />
+                <ScalarProperty Name="IMG" ColumnName="IMG" />
+                <ScalarProperty Name="IMG2" ColumnName="IMG2" />
+                <ScalarProperty Name="IMG3" ColumnName="IMG3" />
+                <ScalarProperty Name="GIA" ColumnName="GIA" />
+                <ScalarProperty Name="TONGDANHGIA" ColumnName="TONGDANHGIA" />
+                <ScalarProperty Name="THUE" ColumnName="THUE" />
+                <ScalarProperty Name="GIAMGIA" ColumnName="GIAMGIA" />
+                <ScalarProperty Name="IDDM" ColumnName="IDDM" />
+                <ScalarProperty Name="DONVITINH" ColumnName="DONVITINH" />
+                <ScalarProperty Name="SOLUONG" ColumnName="SOLUONG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SANPHAM_DV">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.SANPHAM_DV">
+              <MappingFragment StoreEntitySet="SANPHAM_DV">
+                <ScalarProperty Name="MADV" ColumnName="MADV" />
+                <ScalarProperty Name="TENDV" ColumnName="TENDV" />
+                <ScalarProperty Name="IDSP" ColumnName="IDSP" />
+                <ScalarProperty Name="TENSP" ColumnName="TENSP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TAIKHOANs">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.TAIKHOAN">
+              <MappingFragment StoreEntitySet="TAIKHOAN">
+                <ScalarProperty Name="TENTK" ColumnName="TENTK" />
+                <ScalarProperty Name="PASS" ColumnName="PASS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="LOAITK" ColumnName="LOAITK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DANHGIA_SP">
+            <EntityTypeMapping TypeName="KHOCTHATNHIEUDB.DANHGIA_SP">
+              <MappingFragment StoreEntitySet="DANHGIA_SP">
+                <ScalarProperty Name="MADANHGIA" ColumnName="MADANHGIA" />
+                <ScalarProperty Name="SOSAO" ColumnName="SOSAO" />
+                <ScalarProperty Name="IDSP" ColumnName="IDSP" />
+                <ScalarProperty Name="IDKHACHHANG" ColumnName="IDKHACHHANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

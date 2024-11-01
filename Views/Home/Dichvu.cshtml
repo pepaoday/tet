@@ -1,0 +1,116 @@
+﻿@model DoAnPhanMem.Models.TRANGCHU
+@{
+    ViewBag.Title = "Tất Cả Dịch Vụ";
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+<style>
+    .search-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+        .search-container input[type=text] {
+            padding: 10px;
+            margin-right: 10px;
+            width: 300px;
+            font-size: 17px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            .search-container button:hover {
+                background-color: #45a049;
+            }
+
+    .special-list {
+        margin-top: 20px;
+    }
+
+</style>
+<!-- Start All Pages -->
+<div class="all-page-title page-breadcrumb">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 style="font-family:'Times New Roman', Times, serif">TẤT CẢ DỊCH VỤ</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End All Pages -->
+<!-- Start Menu -->
+<div class="menu-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2 style="font-family: 'Times New Roman', Times, serif; font-weight:bold">DỊCH VỤ NỔI BẬT</h2>
+                    <p style="font-size: 20px">Vẻ đẹp của bạn là niềm tự hào của chúng tôi.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12" style="">
+                <div class="special-menu text-center">
+                    <div class="button-group filter-button-group">
+                        <button class="active" data-filter="*" style="">Tất cả</button>
+                        @foreach (var item in Model.DANHMUCDV)
+                        {
+                            <button data-filter=".@item.IDDM">@item.TENDM</button>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="searchResults" class="row special-list">
+            @foreach (var item in Model.DICHVU)
+            {
+                <a href="/DICHVU/FindBy?IDDM=@item.IDDM">
+                    <div class="col-lg-4 col-md-6 special-grid @item.IDDM">
+                        <div class="gallery-single fix">
+                            <img src="~/Images/@item.IMG" class="img-fluid" alt="Image" style="height:250px;width:400px">
+                            <div class="why-text">
+                                <h4>@item.TENDV</h4>
+                                <p>@item.MOTA</p>
+                                <h5>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:C0}", item.GIA)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>
+<!-- End Menu -->
+
+
+@*<script>
+    $(document).ready(function () {
+        $('#searchBtn').click(function () {
+            var searchText = $('#searchInput').val().trim();
+            if (searchText !== '') {
+                $.ajax({
+                    url: '/DICHVU/SearchByName',
+                    type: 'GET',
+                    data: { name: searchText },
+                    success: function (data) {
+                        $('#searchResults').html(data); // Hiển thị kết quả tìm kiếm
+                    },
+                    error: function () {
+                        alert('Đã xảy ra lỗi khi tìm kiếm dịch vụ.');
+                    }
+                });
+            }
+        });
+    });
+</script>*@

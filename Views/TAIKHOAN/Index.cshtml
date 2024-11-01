@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DoAnPhanMem.Models.TAIKHOAN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmi.cshtml";
+}
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    .table {
+        width: 80%;
+        border-collapse: collapse;
+        margin-left: 100px;
+    }
+
+        .table th, .table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+
+        .table tbody tr {
+            background-color: #f2f2f2;
+        }
+
+</style>
+
+<h2>Tài khoản</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.TENTK)</th>
+            <th>@Html.DisplayNameFor(model => model.PASS)</th>
+            <th>@Html.DisplayNameFor(model => model.EMAIL)</th>
+            <th>@Html.DisplayNameFor(model => model.LOAITK)</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.TENTK)</td>
+                <td>@Html.DisplayFor(modelItem => item.PASS)</td>
+                <td>@Html.DisplayFor(modelItem => item.EMAIL)</td>
+                <td>@Html.DisplayFor(modelItem => item.LOAITK)</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.TENTK.Trim() })" class="btn btn-warning btn-sm">Sửa</a> |
+                    <a href="@Url.Action("Delete", new { id = item.TENTK.Trim() })" class="btn btn-danger btn-sm">Xóa</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

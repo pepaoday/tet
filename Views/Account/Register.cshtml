@@ -1,0 +1,68 @@
+﻿@model DoAnPhanMem.Models.TAIKHOAN
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+
+<div class="reservation-box" style="padding-top: 70px; background-image: url(~/../../Content/img/background1.jpg);background-size:cover">
+    <div class="container" style="background-color:white;padding-top:50px;padding-bottom:50px;width:900px;border-radius:20px">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2 style="font-family:'Times New Roman', Times, serif"><strong>ĐĂNG KÝ</strong></h2>
+                    <p>Chúng tôi luôn đảm bảo về chất lượng phục vụ tốt nhất cho khách hàng</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="contact-block">
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { id = "RegisterForm" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col-md-6 mx-auto">
+                                <h3 style="text-align:center">NHẬP THÔNG TIN TÀI KHOẢN:</h3>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.TENTK, new { @class = "form-control", @placeholder = "Tên tài khoản", @required = "required", @style = "border-radius:5px" })
+                                        @Html.ValidationMessageFor(m => m.TENTK, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.EMAIL, new { @class = "form-control", @type = "email", @placeholder = "Email", @required = "required", @style = "border-radius:5px" })
+                                        @Html.ValidationMessageFor(m => m.EMAIL, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.PasswordFor(m => m.PASS, new { @class = "form-control", @placeholder = "Mật khẩu", @required = "required", @style = "border-radius:5px" })
+                                        @Html.ValidationMessageFor(m => m.PASS, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", @placeholder = "Xác nhận mật khẩu", @required = "required", @style = "border-radius:5px" })
+                                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="submit-button text-center">
+                                    <button class="btn btn-common" id="submit" type="submit">ĐĂNG KÝ</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <p class="text-center" style="margin-top:20px;font-size:17px">Bạn đã có tài khoản ? <a style="color:brown" href="@Url.Action("Login", "Account")"><strong>Đăng nhập</strong></a></p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

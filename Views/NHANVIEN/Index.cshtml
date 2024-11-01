@@ -1,0 +1,154 @@
+﻿@model IEnumerable<DoAnPhanMem.Models.NHANVIEN>
+
+@{
+    ViewBag.Title = "Danh sách Nhân Viên";
+    Layout = "~/Views/Shared/_LayoutAdmi.cshtml";
+}
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    .container {
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .table th, .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table th {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e9ecef;
+    }
+
+    .modal-header {
+        background-color: #dc3545;
+        color: white;
+    }
+</style>
+
+<div class="container">
+    <h2>Danh sách Nhân Viên</h2>
+
+    <p>
+        @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-primary" })
+    </p>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID Nhân Viên</th>
+                <th>Tên Nhân Viên</th>
+                <th>Giới Tính</th>
+                <th>Địa Chỉ</th>
+                <th>Tổng Đánh Giá</th>
+                <th>Ngày Sinh</th>
+                <th>Số Điện Thoại</th>
+                <th>Chức Vụ</th>
+                <th>Tài Khoản</th>
+                <th>Mật Khẩu</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.IDNHANVIEN)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TENNV)</td>
+                    <td>
+                        @if (item.GIOITINH.HasValue)
+                        {
+                            @((item.GIOITINH.Value) ? "Nữ" : "Nam")
+                        }
+                        else
+                        {
+                            <span>Chưa xác định</span>
+                        }
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.DIACHI)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TONGDANHGIA)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NGAYSINH)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SODT)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CHUCVU)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TAIKHOAN.TENTK)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TAIKHOAN.PASS)</td>
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.IDNHANVIEN.Trim() })" class="btn btn-warning btn-sm">Sửa</a>
+                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal('@item.IDNHANVIEN', '@item.TENNV')">Xóa</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Xóa Nhân Viên</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Bạn có chắc chắn muốn xóa nhân viên <strong id="deleteItemName"></strong>?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                    <button type="button" class="btn btn-danger" onclick="deleteItem()">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        var deleteItemId = '';
+
+        function showDeleteModal(id, name) {
+            deleteItemId = id;
+            $('#deleteItemName').text(name);
+            $('#deleteModal').modal('show');
+        }
+
+        function deleteItem() {
+            $.ajax({
+                url: '@Url.Action("DeleteConfirmed", "NHANVIEN")',
+                type: 'POST',
+                data: {
+                    id: deleteItemId,
+                    __RequestVerificationToken: $('input[name=__RequestVerificationToken]').val()
+                },
+                success: function (result) {
+                    if (result.success) {
+                        window.location.reload();
+                    } else {
+                        alert(result.message || 'Xóa không thành công.');
+                    }
+                },
+                error: function (err) {
+                    alert('Xóa không thành công.');
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>C11 SPA</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="~/Content/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="~/Content/images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/Content/css/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+
+
+
+
+</head>
+
+
+<body>
+    <!-- Start header -->
+    <header class="top-navbar">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href=@Url.Action("Index","Home")>
+                    <img src="~/Content/img/logo.png" alt="Logo" style="height:60px;width:max-content" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbars-rs-food" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbars-rs-food">
+                    <ul class="navbar-nav ml-auto">
+                        @{
+                            string currentAction = ViewContext.RouteData.Values["Action"].ToString();
+                            string currentController = ViewContext.RouteData.Values["Controller"].ToString();
+                        }
+                        <!-- Trang chủ -->
+                        <li class="nav-item @(currentAction == "Index" && currentController == "Home" ? "active" : "")">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">Trang chủ</a>
+                        </li>
+
+                        <!-- Dịch vụ -->
+                        <li class="nav-item @(currentAction == "Dichvu" && currentController == "Home" ? "active" : "")">
+                            <a class="nav-link" href="@Url.Action("Dichvu","Home")">Dịch vụ</a>
+                        </li>
+
+                        <!-- Đặt lịch -->
+                        <li class="nav-item @(currentAction == "Booking" && currentController == "Home" ? "active" : "")">
+                            <a class="nav-link" href="@Url.Action("Booking", "Home")">Đặt lịch</a>
+                        </li>
+
+                        <!-- Thông tin -->
+                        <li class="nav-item dropdown @(currentController == "Home" && (currentAction == "GioiThieu" || currentAction == "NhanVien" || currentAction == "DanhMuc") ? "active" : "")">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown-a" data-toggle="dropdown">Thông tin</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="@Url.Action("GioiThieu", "Home")">Giới thiệu</a>
+                                <a class="dropdown-item" href="@Url.Action("NhanVien","Home")">Nhân viên</a>
+                                <a class="dropdown-item" href="@Url.Action("DanhMuc","Home")">Danh mục dịch vụ</a>
+                            </div>
+                        </li>
+                        <!--Khuyến mãi-->
+                        <li class="nav-item @(currentAction == "KhuyenMai" && currentController == "Home" ? "active" : "")">
+                            <a class="nav-link" href="@Url.Action("KhuyenMai","Home")">Khuyến mãi</a>
+                        </li>
+                        <!-- Liên hệ -->
+                        <li class="nav-item @(currentAction == "LienHe" && currentController == "Home" ? "active" : "")">
+                            <a class="nav-link" href="@Url.Action("LienHe","Home")">Liên hệ</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div style="width:fit-content;margin-right:20px">
+                <ul class="navbar-nav ml-auto">
+                    @{
+                        string currentAction1 = ViewContext.RouteData.Values["Action"].ToString();
+                        string currentController1 = ViewContext.RouteData.Values["Controller"].ToString();
+                    }
+                    @*<li class="nav-item">
+                        <input type="text" id="searchInput" placeholder="Tìm kiếm dịch vụ...">
+                        <div id="searchResults" class="row special-list"></div>
+                        <i class="fas fa-search nav-link"></i>
+                    </li>*@
+                    @Html.Action("renderSeach", "Home")
+                    @if (Session["User"] == null)
+
+                    {
+                        <li class="nav-item dropdown">
+                            <i class="fas fa-user nav-link dropdown-toggle @(currentAction1 == "Register" || currentAction1 == "Login" && currentController1 == "Home" ? "active" : "")" style="padding: 13px 30px" data-toggle="dropdown" id="dropdown-a"></i>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-a">
+                                <a class="dropdown-item" href="@Url.Action("Login","Account")">Đăng nhập</a>
+                                <a class="dropdown-item" href="@Url.Action("Register","Account")">Đăng ký</a>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+                        var login = Session["TenTK"].ToString().Trim();
+                        if (string.Equals(login, "admin", StringComparison.OrdinalIgnoreCase))
+                        {
+                            <li class="nav-item dropdown">
+                                <i class="fas nav-link dropdown-toggle @(currentAction1 == "Register" || currentAction1 == "Login" && currentController1 == "Home" ? "active" : "")" style="padding: 13px 30px; font-family: Calibri" data-toggle="dropdown" id="dropdown-a">Admin</i>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-a">
+                                    <a class="dropdown-item" href="@Url.Action("Index","Admin")">Trang quản lý</a>
+                                    <a class="dropdown-item" href="@Url.Action("Logout","Account")">Đăng xuất</a>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item dropdown">
+                                <i class="fas nav-link dropdown-toggle @(currentAction1 == "Register" || currentAction1 == "Login" && currentController1 == "Home" ? "active" : "")" style="padding: 13px 30px; font-family: Calibri" data-toggle="dropdown" id="dropdown-a">@Session["TenTK"]</i>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-a">
+                                    <a class="dropdown-item" href="@Url.Action("getProfile","KHACHHANG", new { TenTK = login })">Thông tin cá nhân</a>
+                                    <a class="dropdown-item" href="@Url.Action("Logout","Account")">Đăng xuất</a>
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!-- End header -->
+    <div style="padding-top: 100px">
+        @RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+    </div>
+    <!-- Start Contact info -->
+    <div class="contact-imfo-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <i class="fa fa-volume-control-phone"></i>
+                    <div class="overflow-hidden">
+                        <h4>Số điện thoại</h4>
+                        <p class="lead">
+                            +84 778 508 943
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-envelope"></i>
+                    <div class="overflow-hidden">
+                        <h4>Email</h4>
+                        <p class="lead">
+                            phong2911203@gmail.com
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa fa-map-marker"></i>
+                    <div class="overflow-hidden">
+                        <h4>Địa chỉ</h4>
+                        <p class="lead">
+                            828 Sư Vạn Hạnh - Phường 12 - Quận 10
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact info -->
+    <!-- Start Footer -->
+    <footer class="footer-area bg-f">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <h3>Giới Thiệu</h3>
+                    <p style="font-size:18px">Sứ mệnh của Spa là chăm sóc sắc đẹp cho phụ nữ Việt bằng các công nghệ đẳng cấp, tân tiến trên thế giới, đặc biệt trong giảm béo, trẻ hóa, xóa nhăn và chăm sóc da với đội ngũ có trình độ cao, tận tâm và chuyên nghiệp.</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3>Giờ  Mở Cửa</h3>
+                    <p style="font-size:18px"><span class="text-color">Thứ 2 : </span>Đóng Cửa</p>
+                    <p style="font-size:18px"><span class="text-color">Thứ 3 - Thứ 4 :</span> 8:Am - 10PM</p>
+                    <p style="font-size:18px"><span class="text-color">Thứ 5 - Thứ 6 :</span> 8:Am - 10PM</p>
+                    <p style="font-size:18px"><span class="text-color">Thứ 7 - Chủ Nhật :</span> 7:AM - 11PM</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3>Thông Tin Liên Hệ</h3>
+                    <p class="text-color" style="font-size:18px">828 Sư Vạn Hạnh - Phường 12 - Quận 10</p>
+                    <p class="text-color" style="font-size:18px">+84 778 508 943</p>
+                    <p class="text-color" style="font-size:18px">tomnvp29@admin.com</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3>Theo dõi chúng tôi</h3>
+                    <ul class="list-inline f-social">
+                        <li class="list-inline-item"><a href="https://www.facebook.com/profile.php?id=100041927625592&mibextid=LQQJ4d"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.linkedin.com/in/nguyễn-phong-110547312"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li class="list-inline-item"><a href="https://www.instagram.com/ryuyukata?igsh=MWY0bjRldThsaGYzaw%3D%3D&utm_source=qr"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+    <!-- ALL JS FILES -->
+    <script src="~/Scripts/js/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/js/popper.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="~/Scripts/js/jquery.superslides.min.js"></script>
+    <script src="~/Scripts/js/images-loded.min.js"></script>
+    <script src="~/Scripts/js/isotope.min.js"></script>
+    <script src="~/Scripts/js/baguetteBox.min.js"></script>
+    <script src="~/Scripts/js/form-validator.min.js"></script>
+    <script src="~/Scripts/js/contact-form-script.js"></script>
+    <script src="~/Scripts/js/custom.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "Quên mật khẩu";
+    Layout = "~/Views/Shared/_Layoutweb.cshtml";
+}
+
+<div class="reservation-box" style="padding-top: 70px; background-image: url(~/../../Content/img/background1.jpg);background-size:cover">
+    <div class="container" style="background-color:white;padding-top:50px;padding-bottom:50px;width:900px;border-radius:20px">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading-title text-center">
+                    <h2 style="font-family:'Times New Roman', Times, serif"><strong>KHÔI PHỤC MẬT KHẨU</strong></h2>
+                    <p>Chúng tôi luôn đảm bảo về chất lượng phục vụ tốt nhất cho khách hàng</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="contact-block">
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mx-auto">
+                                <h3 style="text-align:center">NHẬP THÔNG TIN TÀI KHOẢN:</h3>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input style="border-radius:5px" type="text" class="form-control" id="name" name="name" placeholder="Email đăng ký tài khoản" required data-error="Vui lòng nhập email">
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="submit-button text-center">
+                                    <button class="btn btn-common" id="submit" type="submit">KHÔI PHỤC</button>
+                                    <div id="msgSubmit" class="h3 text-center hidden"></div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <p class="text-center" style="margin-top:20px;font-size:17px">Bạn chưa có tài khoản ? <a style="color:brown" href="@Url.Action("Register","Account")"><strong>Đăng ký </br> </strong></a><a style="margin-top:20px;font-size:17px;color:brown" href="@Url.Action("Login","Account")"><strong>Đăng nhập </strong></a></p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
